@@ -48,6 +48,6 @@ namespace Task4_BootcampRefactory
             //Console.WriteLine("Cipher String is done.");
             //Console.WriteLine("");
 
-        Cart.
+        Cart cart = new Cart();
     }
 }
