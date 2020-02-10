@@ -68,7 +68,7 @@ namespace Task4_BootcampRefactory
         {
             if (condition == 1)
             {
-                Console.WriteLine(user[0]);
+                Console.WriteLine(user);
                 Log1.PopulateLog($"{user} shows username");
             }
             else
