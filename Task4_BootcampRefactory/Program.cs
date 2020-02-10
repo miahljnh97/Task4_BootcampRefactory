@@ -48,22 +48,38 @@ namespace Task4_BootcampRefactory
             //Console.WriteLine("Cipher String is done.");
             //Console.WriteLine("");
 
-            Cart ncart = new Cart();
+            //Cart ncart = new Cart();
 
-            ncart.AddItem(2, 10000, 2)
-                .AddItem(3, 10000, 3)
-                    .AddItem(4, 10000, 4)
-                    .RemoveItem(2)
-                    .AddDiscount(50);
+            //ncart.AddItem(2, 10000, 2)
+            //    .AddItem(3, 10000, 3)
+            //        .AddItem(4, 10000, 4)
+            //        .RemoveItem(2)
+            //        .AddDiscount(50);
 
-            Console.WriteLine($" Total Items : {Cart.TotalItems()}");
-            Console.WriteLine($" Total Quantity : {Cart.TotalQuantity()}");
-            Console.WriteLine($"Total Price : { Cart.TotalPrice()}");
-            Cart.ShowAllItems();
-            Cart.Checkout();
+            //Console.WriteLine($" Total Items : {Cart.TotalItems()}");
+            //Console.WriteLine($" Total Quantity : {Cart.TotalQuantity()}");
+            //Console.WriteLine($"Total Price : { Cart.TotalPrice()}");
+            //Cart.ShowAllItems();
+            //Cart.Checkout();
 
-            Console.WriteLine("Cart is done.");
-            Console.WriteLine("");
+            //Console.WriteLine("Cart is done.");
+            //Console.WriteLine("");
+
+            AuthenticClass.login("root","secret") ;
+            AuthenticClass.validate("root", "secret" );
+            AuthenticClass._user();
+            AuthenticClass.check();
+            AuthenticClass.guest();
+            AuthenticClass.lastLogin();
+            AuthenticClass.logout();
+            AuthenticClass.guest();
+
+            Console.WriteLine("Authentication is done.");
+            //Console.WriteLine("");
+
+            //LogClass.Log1.SaveAllLog();
+            //Console.WriteLine("Log is done.");
+            //Console.WriteLine("");
         }
 
     }

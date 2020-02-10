@@ -1,103 +1,113 @@
 ﻿using System;
+using static Task4_BootcampRefactory.LogClass;
+
 namespace Task4_BootcampRefactory
 {
-    //public class AuthenticClass
-    //{
-    //    public static List<user> database { get; set; }
+    public class AuthenticClass
+    {
+        public static string user = "root";
+        public static string password = "secret";
+        public static string id = "rx-178";
+        public static int condition = 0;
+        public static DateTime loginTime = new DateTime();
 
-    //    public static List<user> log { get; set; }
 
-    //    public static user currentUser { get; set; }
 
-    //    public Auth()
-    //    {
-    //        database = new List<user>();
-    //        log = new List<user>();
-    //    }
+        public static void login(string User, string Password)
+        {
+            if (User == user && Password == password)
+            {
+                Console.WriteLine("Logged in");
+                Log1.PopulateLog("Logged in");
+                condition = 1;
+                loginTime = DateTime.Now;
+            }
+            else
+            {
+                Console.WriteLine("Wrong password and/or username");
+                Log1.PopulateLog("unknown tried to log in");
+            }
+        }
 
-    //    public static void createUser(string user, string pwd)
-    //    {
-    //        database.Add(new user { Username = user, Password = pwd });
-    //    }
+        public static void validate(string User, string Password)
+        {
+            if (User == user && Password == password && condition == 1)
+            {
+                Console.WriteLine("Already Logged in");
+                Log1.PopulateLog("user validated");
+            }
+            else
+            {
+                Console.WriteLine("Log in first");
+                Log1.PopulateLog("unknown tried to validate");
+            }
+        }
 
-    //    public static void login(string username, string pwd)
-    //    {
-    //        var user = new user
-    //        {
-    //            Username = username,
-    //            Password = pwd
-    //        };
-    //        if (database.Contains(user) && currentUser == null)
-    //        {
-    //            currentUser = user;
-    //            log.Add(user);
-    //            Console.WriteLine("Loggin Succesfully");
-    //        }
-    //        else { Console.WriteLine("Incorrect username or password") };
-    //    }
+        public static void ID()
+        {
+            if (condition == 1)
+            {
+                Console.WriteLine(id);
+                Log1.PopulateLog("user request id");
+            }
+            else
+            {
+                Console.WriteLine("log in first");
+                Log1.PopulateLog("unknown tried to request id");
+            }
+        }
 
-    //    public static void validate(string username, string pwd)
-    //    {
-    //        var user = new user
-    //        {
-    //            Username = username,
-    //            Password = pwd
-    //        };
-    //        if (database.Contains(user))
-    //        {
-    //            Console.WriteLine("Verify");
-    //        }
-    //        else { Console.WriteLine("Not Verify")};
-    //    }
+        public static void logout()
+        {
+            condition = 0;
+            Console.WriteLine("logged out");
+            Log1.PopulateLog($"{user} logged out");
+        }
 
-    //    public static void logout()
-    //    {
-    //        currentUser = null;
-    //        Console.WriteLine("Logout Succesfull");
-    //    }
+        public static void _user()
+        {
+            if (condition == 1)
+            {
+                Console.WriteLine(user[0]);
+                Log1.PopulateLog($"{user} shows username");
+            }
+            else
+            {
+                Console.WriteLine("log in first");
+            }
+        }
 
-    //    public static void user()
-    //    {
-    //        Console.WriteLine($"Current user logged in : {currentUser}");
-    //    }
-
-    //    public static void id()
-    //    {
-    //        foreach (var i in database)
-    //        {
-    //            Console.WriteLine($"user_id : {currentUser.Username}");
-    //        }
-    //    }
-
-    //    public static bool check()
-    //    {
-    //        if (currentUser != null)
-    //        {
-    //            return true;
-    //        }
-    //        return false;
-    //    }
-
-    //    public static bool guest()
-    //    {
-    //        if (currentUser == null)
-    //        {
-    //            return true;
-    //        }
-    //        return false;
-    //    }
-
-    //    public static void lastlogin()
-    //    {
-    //        Console.WriteLine(log[log.Count - 1]);
-    //    }
-
-    //}
-
-    //class user
-    //{
-    //    public string Username { get; set; }
-    //    public string Password { get; set; }
-    //}
+        public static void check()
+        {
+            if (condition == 1)
+            {
+                Console.WriteLine(true);
+                Log1.PopulateLog($"{user} is logged in");
+            }
+            else
+            {
+                Console.WriteLine(false);
+                Log1.PopulateLog("unknown tried to check");
+            }
+        }
+        public static void guest()
+        {
+            if (condition == 0)
+            {
+                Console.WriteLine(true);
+                Log1.PopulateLog("guest is user");
+            }
+            else
+            {
+                Console.WriteLine(false);
+                Log1.PopulateLog($"{user} is logged in");
+            }
+        }
+        public static void lastLogin()
+        {
+            Console.WriteLine(loginTime);
+            Log1.PopulateLog($"{user} last log in");
+        }
+    }
 
 }
