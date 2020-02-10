@@ -5,8 +5,8 @@ namespace Task4_BootcampRefactory
 {
     class Program
     {
-        static void Main(string[] args) =>
-
+        static void Main(string[] args)
+        {
             //Console.WriteLine("Masukkan kata yang kamu inginkan: ");
             //string plainData = Console.ReadLine();
             //Console.WriteLine("Raw data : {0}", plainData);
@@ -48,6 +48,23 @@ namespace Task4_BootcampRefactory
             //Console.WriteLine("Cipher String is done.");
             //Console.WriteLine("");
 
-        Cart cart = new Cart();
+            Cart ncart = new Cart();
+
+            ncart.AddItem(2, 10000, 2)
+                .AddItem(3, 10000, 3)
+                    .AddItem(4, 10000, 4)
+                    .RemoveItem(2)
+                    .AddDiscount(50);
+
+            Console.WriteLine($" Total Items : {Cart.TotalItems()}");
+            Console.WriteLine($" Total Quantity : {Cart.TotalQuantity()}");
+            Console.WriteLine($"Total Price : { Cart.TotalPrice()}");
+            Cart.ShowAllItems();
+            Cart.Checkout();
+
+            Console.WriteLine("Cart is done.");
+            Console.WriteLine("");
+        }
+
     }
 }
